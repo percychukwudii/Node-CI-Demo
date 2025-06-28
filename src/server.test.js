@@ -12,7 +12,7 @@ describe('root', () => {
       .get('/')
       .expect(200)
       .then((res) => {
-        expect(res.text).toContain('Welcome to Express');
+        expect(res.text).toContain('Foundations of Cloud and DevOps');
       }));
 
   it('request api, returns json', () => request(app)
