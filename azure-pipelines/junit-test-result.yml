@@ -48,12 +48,11 @@ steps:
     displayName: 'Deploy Web App'
     environment: 'production'
     pool:
-      name: Azure Pipelines
+      name: $(agentPool)
     strategy:
       runOnce:
         deploy: 
           steps:
-
     # steps:
     # # - task: DownloadPipelineArtifact@2
     #   # inputs:
