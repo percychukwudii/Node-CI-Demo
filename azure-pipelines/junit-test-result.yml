@@ -40,20 +40,22 @@ steps:
     publishLocation: 'Container'
 
 - stage: Deploy
-  displayName: Deploy to App Service
+  displayName: 'Deploy to Azure'
   dependsOn: Build
   condition: succeeded()
   jobs:
-  - job: Deploy_Job
+  - deployment: Deploy
+    displayName: 'Deploy Web App'
+    environment: 'production'
     pool:
       name: Azure Pipelines
     steps:
-    - task: DownloadPipelineArtifact@2
-      inputs:
-        buildType: 'current'
-        artifact: 'drop'
-        targetPath: '$(Pipeline.Workspace)/drop'
-      displayName: 'Download Artifact'
+    # - task: DownloadPipelineArtifact@2
+      # inputs:
+      #   buildType: 'current'
+      #   artifact: 'drop'
+      #   targetPath: '$(Pipeline.Workspace)/drop'
+      #   displayName: 'Download Artifact'
 
     - task: AzureWebApp@1
       displayName: 'Deploy to Azure App Service'
