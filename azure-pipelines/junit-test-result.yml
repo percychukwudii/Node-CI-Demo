@@ -47,8 +47,6 @@ steps:
   - deployment: Deploy
     displayName: 'Deploy Web App'
     environment: 'production'
-    pool:
-      name: $(agentPool)
     strategy:
       runOnce:
         deploy: 
