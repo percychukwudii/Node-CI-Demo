@@ -49,19 +49,24 @@ steps:
     environment: 'production'
     pool:
       name: Azure Pipelines
-    steps:
-    # - task: DownloadPipelineArtifact@2
-      # inputs:
-      #   buildType: 'current'
-      #   artifact: 'drop'
-      #   targetPath: '$(Pipeline.Workspace)/drop'
-      #   displayName: 'Download Artifact'
+    strategy:
+      runOnce:
+        deploy: 
+          steps:
 
-    - task: AzureWebApp@1
-      displayName: 'Deploy to Azure App Service'
-      inputs:
-        azureSubscription: 'ARM-connection-dev'
-        appType: 'webApp'
-        appName: 'web-app-version-2'
-        package: '$(Pipeline.Workspace)/drop/$(Build.BuildId).zip'
-        deploymentMethod: 'zipDeploy'
+    # steps:
+    # # - task: DownloadPipelineArtifact@2
+    #   # inputs:
+    #   #   buildType: 'current'
+    #   #   artifact: 'drop'
+    #   #   targetPath: '$(Pipeline.Workspace)/drop'
+    #   #   displayName: 'Download Artifact'
+
+          - task: AzureWebApp@1
+            displayName: 'Deploy to Azure App Service'
+            inputs:
+              azureSubscription: 'ARM-connection-dev'
+              appType: 'webApp'
+              appName: 'web-app-version-2'
+              package: '$(Pipeline.Workspace)/drop/$(Build.BuildId).zip'
+              deploymentMethod: 'zipDeploy'
