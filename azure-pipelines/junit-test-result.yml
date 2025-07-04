@@ -37,10 +37,9 @@ steps:
   inputs:
     PathToPublish: '$(Build.ArtifactStagingDirectory)'
     artifactName: 'drop'
-    publishLocation: 'Container'
-
+    
 - stage: Deploy
-  displayName: 'Deploy to Azure'
+  displayName: 'Deploy App Service'
   dependsOn: Build
   condition: succeeded()
   jobs:
