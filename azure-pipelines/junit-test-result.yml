@@ -55,7 +55,7 @@ steps:
             displayName: 'Deploy to Azure App Service'
             inputs:
               azureSubscription: 'ARM-connection-dev'
-              appType: 'webApp'
+              appType: 'webAppLinux'
               appName: 'web-app-version-2'
               package: '$(Pipeline.Workspace)/drop/$(Build.BuildId).zip'
               deploymentMethod: 'zipDeploy'
