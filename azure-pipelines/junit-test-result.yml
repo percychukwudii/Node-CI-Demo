@@ -39,7 +39,6 @@ steps:
     artifactName: 'drop'
     publishLocation: 'Container'
 
-
 - stage: Deploy
   displayName: Deploy to App Service
   dependsOn: Build
