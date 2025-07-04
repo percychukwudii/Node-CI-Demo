@@ -38,6 +38,7 @@ steps:
     PathToPublish: '$(Build.ArtifactStagingDirectory)'
     artifactName: 'drop'
     
+# Deployment
 - stage: Deploy
   displayName: 'Deploy App Service'
   dependsOn: Build
