@@ -53,14 +53,6 @@ steps:
       runOnce:
         deploy: 
           steps:
-    # steps:
-    # # - task: DownloadPipelineArtifact@2
-    #   # inputs:
-    #   #   buildType: 'current'
-    #   #   artifact: 'drop'
-    #   #   targetPath: '$(Pipeline.Workspace)/drop'
-    #   #   displayName: 'Download Artifact'
-
           - task: AzureWebApp@1
             displayName: 'Deploy to Azure App Service'
             inputs:
